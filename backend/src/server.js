@@ -27,8 +27,12 @@ app.use('/api', limiter);
 // ===== MIDDLEWARES GENERALES =====
 app.use(cors({
     origin: process.env.NODE_ENV === 'production'
-        ? ['https://tu-dominio.com'] // Cambia esto en producción
-        : ['http://localhost:3000'],
+        ? ['https://tu-dominio.com']
+        : [
+            'http://localhost:3000',
+            'http://127.0.0.1:3000',
+            'http://192.168.31.14:3000', // Tu IP local
+        ],
     credentials: true,
 }));
 
