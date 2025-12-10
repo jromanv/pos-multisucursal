@@ -36,6 +36,10 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(morgan('dev')); // Logs de peticiones HTTP
 
+// ===== RUTAS =====
+const authRoutes = require('./routes/authRoutes');
+app.use('/api/auth', authRoutes);
+
 // ===== RUTA DE PRUEBA =====
 app.get('/api/health', (req, res) => {
     res.json({
